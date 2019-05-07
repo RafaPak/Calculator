@@ -1,0 +1,10 @@
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\bin\Debug\ApCalculadora.exe.config
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\bin\Debug\ApCalculadora.exe
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\bin\Debug\ApCalculadora.pdb
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.csprojResolveAssemblyReference.cache
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.frmCalculadora.resources
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.Properties.Resources.resources
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.csproj.GenerateResource.Cache
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.csproj.CoreCompileInputs.cache
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.exe
+Z:\2018\3º Semestre\Estruturas de Dados I\Projetos e Provas\ApCalculadora\ApCalculadora\obj\Debug\ApCalculadora.pdb
