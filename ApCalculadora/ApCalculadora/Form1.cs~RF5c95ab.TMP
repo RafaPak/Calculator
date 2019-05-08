@@ -56,12 +56,12 @@ namespace ApCalculadora
         {
             txtVisor.Text = "";
             txtResultado.Text = "";
-            lbSequencias.Text = "";
+            lbSequencias.Text = "Pósfixa";
         }
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            lbSequencias.Text = "";
+            lbSequencias.Text = "Pósfixa";
             Button clicked = (Button)sender;
             txtVisor.Text += clicked.Text;
         }
@@ -74,26 +74,24 @@ namespace ApCalculadora
 
             string sequencia = txtVisor.Text;
 
-            for (int s = 0; s < sequencia.Length; s++)
+            for (int x = 0; x < sequencia.Length; x++)
             {
                 string item = "";
 
-                if (IsOperacao(sequencia[s].ToString()))
+                if (IsOperacao(sequencia[x].ToString()))
                 {
                     item = "";
-                    int posicao = s;
+                    int posicao = x;
 
-                    while (posicao + item.Length < sequencia.Length &&
-                           (!IsOperacao(sequencia[posicao + item.Length].ToString()) ||
-                           sequencia[posicao + item.Length] == '.'))
+                    while (posicao + item.Length < sequencia.Length && (!IsOperacao(sequencia[posicao + item.Length].ToString()) || sequencia[posicao + item.Length] == '.'))
                         item += sequencia[posicao + item.Length];
 
-                    s = posicao + item.Length - 1;
+                    x = posicao + item.Length - 1;
                     sequenciaPosfixa.Enfileirar(item);
                 }
                 else
                 {
-                    item = sequencia[s] + "";
+                    item = sequencia[x] + "";
 
                     while (!operacoes.EstaVazia() && TemPrecedencia(operacoes.OTopo()[0], item[0]))
                     {
@@ -130,71 +128,13 @@ namespace ApCalculadora
             string[] vetorPosfixa = sequenciaPosfixa.ToArray();
             lbSequencias.Text = "Pósfixa: ";
 
-            for (int t = 0; t < vetorPosfixa.Length; t++)
+            for (int y = 0; y < vetorPosfixa.Length; y++)
             {
-                if (IsOperacao(vetorPosfixa[t]))
-                    lbSequencias.Text += vetorPosfixa[t];
+                if (IsOperacao(vetorPosfixa[y]))
+                    lbSequencias.Text += vetorPosfixa[y];
                 else
                     lbSequencias.Text += variavel++;
             }
-
-            lbSequencias.Text += "\n" + "Infixa: ";
-            variavel = 'A';
-            string[] vetorInfixa = sequenciaInfixa.ToArray();
-
-            for (int z = 0; z < vetorInfixa.Length; z++)
-            {
-                if (IsOperacao(vetorInfixa[z]))
-                    lbSequencias.Text += vetorInfixa[z];
-                else
-                    lbSequencias.Text += variavel++;
-            }
-
-            PilhaLista<double> resultados = new PilhaLista<double>();
-            double x = 0, y = 0, valorFinal = 0;
-
-            string[] vetorSequencia = sequenciaPosfixa.ToArray();
-
-            for (int k = 0; k < vetorSequencia.Length; k++)
-            {
-                if (!IsOperacao(vetorSequencia[k]))
-                    resultados.Empilhar(double.Parse(vetorSequencia[k].Replace('.', ',')));
-                else
-                {
-                    x = resultados.Desempilhar();
-                    y = resultados.Desempilhar();
-
-                    switch (vetorSequencia[k])
-                    {
-                        case "+":
-                            valorFinal = y + x;
-                            break;
-
-                        case "-":
-                            valorFinal = y - x;
-                            break;
-
-                        case "*":
-                            valorFinal = y * x;
-                            break;
-
-                        case "/":
-                            if (x == 0)
-                                throw new DivideByZeroException("Divisão por 0 INVÁLIDA!!");
-
-                            valorFinal = y / x;
-                            break;
-
-                        case "^":
-                            valorFinal = Math.Pow(y, x);
-                            break;
-                    }
-
-                    resultados.Empilhar(valorFinal);
-                }
-            }
-
-            txtResultado.Text = resultados.Desempilhar().ToString();
         }
 
         private void txtVisor_KeyPress(object sender, KeyPressEventArgs e)
